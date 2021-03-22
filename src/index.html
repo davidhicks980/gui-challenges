@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./home.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+
+    <title>The Developer Site for David Hicks</title>
+    <script type="module" src="hicks.bundled.js" defer></script>
+  </head>
+  <body class="ex5">
+    <div class="parent">
+      <header class="section style">
+        <section class="hamburger-container">
+          <button
+            id="sidenav-button"
+            type="button"
+            aria-label="Open Menu"
+            aria-controls="navigation"
+          >
+          
+            <hicks-hamburger id="hamburger" @toggled="hamToggled"> <a slot="link" href="#sidenav-open">Open Sidenav</a> <hicks-hamburger/>
+          </button>
+        </section>
+
+        <section class="title">
+          <h1>David Hicks</h1>
+          <span class="subtitle">
+            Designer | Developer | Pharmacy Student</span
+          >
+        </section>
+        <section class="topnav">
+          <nav aria-labelledby="primary-navigation"></nav>
+        </section>
+      </header>
+      <!--prettier-ignore-->
+
+      <hicks-sidenav >
+        <hicks-nav-menu id="subnavigation" items='["about","news","resume"]' slot='subnavigation'></hicks-nav-menu>
+      </hicks-sidenav>
+      <main class="section style">Main Content</main>
+      <footer class="style section">Footer</footer>
+    </div>
+  </body>
+</html>

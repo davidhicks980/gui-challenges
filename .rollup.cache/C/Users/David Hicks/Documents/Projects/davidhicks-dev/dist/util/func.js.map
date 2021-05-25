@@ -1,0 +1,1 @@
+{"version":3,"file":"func.js","sourceRoot":"","sources":["../../src/util/func.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,aAAa,GAAG,CAAC,GAAG,EAAE,EAAE,CAAC,KAAK,CAAC,OAAO,CAAC,GAAG,CAAC,IAAI,GAAG,CAAC,MAAM,GAAG,CAAC,CAAC","sourcesContent":["export const isFilledArray = (arr) => Array.isArray(arr) && arr.length > 0;\r\n"]}

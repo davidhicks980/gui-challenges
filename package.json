@@ -2,28 +2,50 @@
   "name": "davidhicks.dev",
   "version": "0.3.0",
   "description": "A simple web component",
-  "main": "./src/quiz-component.ts",
+  "main": "./src/component.ts",
   "type": "module",
   "scripts": {
-    "build": "rollup -c --watch",
+    "style": "sass src/main.dev.scss dist/styles/main.prod.css --no-source-map --watch",
+    "build": "concurrently \"rollup -c --watch\"  \"npm run style\"",
     "format": "prettier src/* --write",
     "docs": "npm run docs:clean && npm run build && npm run analyze && npm run docs:build && npm run docs:assets && npm run docs:gen",
-    "serve": "es-dev-server --app-index ./dist/index.html --watch --open"
+    "serve": "concurrently \"wds --app-index ./dist/index.html --watch --open\"  \"npm run build\""
   },
   "keywords": [
     "web-components",
     "lit-element",
     "typescript"
   ],
+  "browserslist": [
+    "last 2 version",
+    "> 0.5%",
+    "IE 10"
+  ],
+  "prettier": {
+  "trailingComma": "es5",
+  "tabWidth": 4,
+  "semi": false,
+  "singleQuote": true
+},
   "author": "The Polymer Authors",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@lion/tooltip": "^0.17.2",
+    "@fluentui/web-components": "^0.21.2",
+    "@github/query-selector": "^1.0.4",
+    "@github/typing-effect-element": "^0.0.2",
+    "@microsoft/fast-components": "^1.21.1",
+    "@web/dev-server": "^0.1.17",
     "@webcomponents/shadycss": "^1.10.2",
     "@webcomponents/webcomponentsjs": "^2.5.0",
-    "browserslist": "^4.16.3",
-    "lit-element": "^2.4.0",
-    "lit-html": "^1.3.0"
+    "asciimath2tex": "^1.1.0",
+    "chart.js": "^3.2.1",
+    "dompurify": "^2.2.8",
+    "element-internals-polyfill": "^0.1.34",
+    "foundation-sites": "^6.6.3",
+    "katex": "^0.13.11",
+    "lit": "^2.0.0-rc.2",
+    "rxjs": "^7.0.1",
+    "ts-lit-plugin": "^1.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
@@ -34,14 +56,21 @@
     "@rollup/plugin-node-resolve": "^11.1.1",
     "@rollup/plugin-replace": "^2.3.3",
     "@rollup/plugin-typescript": "^8.1.1",
+    "@types/chart.js": "^2.9.32",
+    "@types/katex": "^0.11.0",
+    "autoprefixer": "^10.2.5",
+    "browserslist": "^4.16.3",
     "deepmerge": "^4.2.2",
     "es-dev-server": "^1.57.7",
     "lit-analyzer": "^1.2.1",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "rimraf": "^3.0.2",
     "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-string": "^3.0.0",
-    "tslib": "^2.1.0",
-    "typescript": "^4.2.3"
+    "rollup-plugin-styles": "^3.14.1",
+    "rollup-plugin-watch-assets": "^1.0.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
   }
 }

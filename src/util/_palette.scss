@@ -1,0 +1,125 @@
+@use "sass:color";
+@use "sass:math";
+@use "sass:string";
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}//
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+@function getHighlightColor($color) {
+  @return color.scale($color, $alpha: -70%);
+}
+@function getBrightHighlightColor($color) {
+  @return color.scale($color, $alpha: -90%);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}//
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@function scaleColor($color, $step) {
+  @return color.scale(
+    $color,
+    saturation(-#{$step * 10}),
+    brightness(#{$step * 10})
+  );
+}
+@function getLighter($color, $step) {
+  @if $step>0 and $step< 6 {
+    $maxsat: (color.saturation($color) * 0.5) / 20;
+    $maxbright: (color.lightness($color)) / 12;
+    $sat: color.saturation($color) * 0.5 - $step * $maxsat;
+    $bright: (100 - color.lightness($color)) - $step * $maxbright;
+    $newcolor: desaturate(lighten($color, $bright), $sat);
+    @return $newcolor;
+  }
+}
+@function getDarker($color, $step) {
+  @if $step>0 and $step< 6 {
+    $multi: 0.5 * color.saturation($color) / color.lightness($color);
+    $sat: (color.saturation($color));
+    $dark: 100 - color.lightness($color);
+
+    $sat-unit: (100 - $sat) / 8;
+    $dark-unit: (100 - $dark) / 5.5;
+
+    $newcolor: saturate(
+      darken($color, $dark-unit * $step),
+      $sat-unit * $multi * $step
+    );
+    @return $newcolor;
+  }
+}
+
+@mixin shadow($depth) {
+  box-shadow: 0 1px * $depth 2px * $depth rgb(87 107 138 / #{12% * $depth});
+}
+
+@mixin hoverable-shadow($depth) {
+  &:hover::after {
+    opacity: 0.8;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: inherit;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    margin: 0px;
+    @include shadow($depth);
+  }
+}
+
+@mixin thick-outline {
+  outline: 2px dotted currentColor;
+  outline-offset: 1px;
+}
+
+@mixin commonInput {
+  font-size: Max(16px, 1em);
+  border: 1px solid $gray-1;
+  border-radius: 3px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $gray-5;
+  transition: background-color 0.5s ease-in;
+  position: relative;
+  padding: 0.5em 0.35em;
+  @include hoverable-shadow(2);
+  &:active {
+    transition: background-color 0.2s ease-in;
+    &:after {
+      opacity: 1;
+    }
+  }
+  &:focus {
+    background-color: $light-gray-1;
+    transition: background-color 0.2s ease-in;
+    @include hoverable-shadow(3);
+
+    &:after {
+      opacity: 0.4;
+    }
+  }
+  &:hover {
+    background-color: $light-gray-1;
+    transition: background-color 0.5s ease-in;
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"VariableSet.type.js","sourceRoot":"","sources":["../../src/plot/VariableSet.type.ts"],"names":[],"mappings":"","sourcesContent":["/** @typedef {Object} VariableValues - an object containing key-value pairs of variables and their values */\r\nexport type VariableSet = {\r\n  [key: string]: number;\r\n};\r\n"]}

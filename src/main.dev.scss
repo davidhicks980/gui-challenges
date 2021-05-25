@@ -1,0 +1,25 @@
+///////////////////////////
+@use "./home/home";
+@use "./home/header";
+@use './toc/toc';
+@use "./nav/navigation";
+@use "./content/content";
+
+.hidden {
+  padding: 8px;
+  position: absolute;
+  background: var(--gray-8);
+  left: 50%;
+  height: 20px;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
+a.hidden:focus {
+  transform: translateY(0%);
+}
+
+a.hidden {
+  color: white;
+  text-decoration: none;
+}

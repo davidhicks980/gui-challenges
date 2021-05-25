@@ -1,0 +1,1 @@
+{"version":3,"file":"Options.js","sourceRoot":"","sources":["../../src/radio-group/Options.ts"],"names":[],"mappings":"","sourcesContent":["export type Option = { name: string; label: string; selected: boolean };\r\n"]}

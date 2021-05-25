@@ -1,0 +1,71 @@
+@mixin headline1 {
+  font-family: var(--header-font);
+  font-size: 99;
+}
+@mixin headline2 {
+  font-family: var(--header-font);
+  font-size: 62;
+}
+@mixin headline3 {
+  font-family: var(--header-font);
+  font-size: 49;
+}
+@mixin headline4 {
+  font-family: var(--header-font);
+  font-size: 35;
+}
+@mixin headline5 {
+  font-family: var(--header-font);
+  font-size: 25;
+}
+@mixin headline6 {
+  font-family: var(--header-font);
+  font-size: 21;
+}
+@mixin body1 {
+  font-family: var(--body-font);
+  font-size: 16;
+}
+@mixin body2 {
+  font-family: var(--body-font);
+  font-size: 14;
+}
+@mixin subtitle1 {
+  font-family: var(--header-font);
+  font-size: 16;
+}
+@mixin subtitle2 {
+  font-family: var(--header-font);
+  font-size: 14;
+}
+@mixin button {
+  font-family: var(--body-font);
+  font-size: 14;
+}
+@mixin overline {
+  font-family: var(--body-font);
+  font-size: 10;
+}
+@mixin caption {
+  font-family: var(--body-font);
+  font-size: 12;
+}
+
+h1 {
+  @include headline1;
+}
+h2 {
+  @include headline2;
+}
+h3 {
+  @include headline3;
+}
+h4 {
+  @include headline4;
+}
+h5 {
+  @include headline5;
+}
+h6 {
+  @include headline6;
+}

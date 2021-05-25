@@ -1,0 +1,1 @@
+{"version":3,"file":"Variable.js","sourceRoot":"","sources":["../../src/plot/Variable.ts"],"names":[],"mappings":"","sourcesContent":["export interface Variable {\r\n  name?: string;\r\n  units: string;\r\n  symbol: string;\r\n  min: number;\r\n  max: number;\r\n  value: number;\r\n  range?: number[];\r\n  step?: number;\r\n}\r\n"]}

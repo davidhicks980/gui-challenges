@@ -1,49 +1,68 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="./home.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital;IBM+Plex+Sans:ital&display=swap"
+      rel="stylesheet"
+    />
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+    <link rel="stylesheet" href="styles/main.prod.css" />
+    <script defer src="./components.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@fluentui/web-components"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600&family=Mukta:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <title>The Developer Site for David Hicks</title>
-    <script type="module" src="hicks.bundled.js" defer></script>
   </head>
-  <body class="ex5">
-    <div class="parent">
-      <header class="section style">
-        <section class="hamburger-container">
-          <button
-            id="sidenav-button"
-            type="button"
-            aria-label="Open Menu"
-            aria-controls="navigation"
-          >
-          
-            <hicks-hamburger id="hamburger" @toggled="hamToggled"> <a slot="link" href="#sidenav-open">Open Sidenav</a> <hicks-hamburger/>
-          </button>
-        </section>
+  <body>
+    <div>
+    <a tabindex="1" class="hidden" href="#">Skip to content</a>
+<div>
+    <div class="layout">
+      <div class="layout__header">
+        <header class="header">
+          <section>
+            <h1 class="header__title">David Hicks</h1>
+            <span class="header__subtitle"> Pharmacist & Developer</span>
+          </section>
+          <span class="one"></span>
+          <span class="two"></span>
 
-        <section class="title">
-          <h1>David Hicks</h1>
-          <span class="subtitle">
-            Designer | Developer | Pharmacy Student</span
-          >
-        </section>
-        <section class="topnav">
-          <nav aria-labelledby="primary-navigation"></nav>
-        </section>
-      </header>
-      <!--prettier-ignore-->
+          <span class="three"></span>
+          <span class="four"></span>
+          <span class="five"></span>
+        </header>
+      </div>
+      <div class="layout__navigation">
+       <hicks-nav secondary="--blue4" primary="--blue8">
+        <span slot="header">David Hicks</span>
+         <hicks-nav-item>Home</hicks-nav-item>
+         <hicks-nav-item>Projects</hicks-nav-item>
+         <hicks-nav-item>Resume</hicks-nav-item>
+                  <hicks-nav-item>Interests</hicks-nav-item>
 
-      <hicks-sidenav >
-        <hicks-nav-menu id="subnavigation" items='["about","news","resume"]' slot='subnavigation'></hicks-nav-menu>
-      </hicks-sidenav>
-      <main class="section style">Main Content</main>
-      <footer class="style section">Footer</footer>
+       </hicks-nav>
+      </div>
+      <div class="layout__main">
+        <main class="main">
+          <content-component class="main__content"></content-component>
+          <hicks-toc class="main__table-of-contents toc" opened></hicks-toc>
+        </main>
+      </div>
+      <div class="layout__footer"><footer>Footer</footer></div>
     </div>
   </body>
 </html>

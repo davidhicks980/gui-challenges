@@ -1,1 +1,15 @@
-{}
+{
+    "editor.tokenColorCustomizations": {
+        "comments": "",
+        "textMateRules": []
+    },
+    "prettier.resolveGlobalModules": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "'PT Mono', 'Courier New', monospace",
+    "workbench.hover.delay": 250,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 7,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.autoSave": "onFocusChange"
+}

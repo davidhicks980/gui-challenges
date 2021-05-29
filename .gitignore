@@ -1,2 +1,6 @@
 node_modules
 node_modules
+dist/components.js
+dist/out
+dist/styles/main.prod.css
+.rollup.cache/C/Users/David Hicks/Documents/Projects/davidhicks-dev/dist/out

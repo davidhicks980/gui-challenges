@@ -1,0 +1,23 @@
+@use 'styles' as *;
+.layout {
+  display: grid;
+  grid-template-areas: 'header header header' 'main main main' 'footer footer footer';
+  grid-template-rows: 90px auto 90px;
+  @include bem-element('header') {
+    grid-area: header;
+    position: relative;
+    background-color: transparent;
+    border-bottom: 1px solid var(--gray-5);
+    @include pal-hoverable-shadow(5);
+  }
+  @include bem-element('navigation') {
+    grid-area: nav;
+  }
+  @include bem-element('footer') {
+    grid-area: footer;
+    height: 200px;
+  }
+  @include bem-element('main') {
+    grid-area: main;
+  }
+}

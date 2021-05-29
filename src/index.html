@@ -7,7 +7,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital;IBM+Plex+Sans:ital&display=swap"
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital;IBM+Plex+Serif:ital&display=swap"
       rel="stylesheet"
     />
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -18,8 +18,7 @@
       type="module"
       src="https://unpkg.com/@fluentui/web-components"
     ></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    
     <link
       href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600&family=Mukta:wght@200;300;400;500;600&display=swap"
       rel="stylesheet"
@@ -27,35 +26,31 @@
 
     <title>The Developer Site for David Hicks</title>
   </head>
-  <body>
+  <body >
+                  
+
     <div>
-    <a tabindex="1" class="hidden" href="#">Skip to content</a>
-<div>
+        <a tabindex="1" class="hidden" href="#">Skip to content</a>
+    <div>
+          <background-animation>
+            <header>David Hicks</header>
+          </background-animation>
+
     <div class="layout">
+
       <div class="layout__header">
         <header class="header">
-          <section>
+
+          <section class="header__wrapper">
             <h1 class="header__title">David Hicks</h1>
-            <span class="header__subtitle"> Pharmacist & Developer</span>
+            <span class="header__subtitle">Pharmacist & Developer</span>
           </section>
-          <span class="one"></span>
-          <span class="two"></span>
-
-          <span class="three"></span>
-          <span class="four"></span>
-          <span class="five"></span>
+          
+         
         </header>
-      </div>
-      <div class="layout__navigation">
-       <hicks-nav secondary="--blue4" primary="--blue8">
-        <span slot="header">David Hicks</span>
-         <hicks-nav-item>Home</hicks-nav-item>
-         <hicks-nav-item>Projects</hicks-nav-item>
-         <hicks-nav-item>Resume</hicks-nav-item>
-                  <hicks-nav-item>Interests</hicks-nav-item>
 
-       </hicks-nav>
       </div>
+      
       <div class="layout__main">
         <main class="main">
           <content-component class="main__content"></content-component>

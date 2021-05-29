@@ -1,11 +1,14 @@
-import { ContentComponent } from "./content/content.component";
-import { TableOfContents } from "./toc/toc";
-import "./typing-effect-element";
-import { NavComponent, NavItemComponent } from "./nav.component";
+import { ContentComponent } from './content.component';
+import { TableOfContents } from './toc/toc';
+import './typing-effect-element';
+import { NavComponent, NavItemComponent } from './nav.component';
+import { BackgroundAnimation } from './animation';
 ContentComponent;
 TableOfContents;
 NavItemComponent;
 NavComponent;
+TableOfContents;
+BackgroundAnimation;
 /*
 c
 let plot = document.querySelector("plot-engine");

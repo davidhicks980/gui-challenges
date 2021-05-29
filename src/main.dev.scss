@@ -1,9 +1,8 @@
 ///////////////////////////
-@use "./home/home";
-@use "./home/header";
-@use './toc/toc';
-@use "./nav/navigation";
-@use "./content/content";
+@use "home";
+@use "header";
+@use "content";
+@use "styles";
 
 .hidden {
   padding: 8px;
@@ -22,4 +21,24 @@ a.hidden:focus {
 a.hidden {
   color: white;
   text-decoration: none;
+}
+
+html,
+body {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }

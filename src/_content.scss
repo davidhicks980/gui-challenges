@@ -1,0 +1,37 @@
+@use 'styles.scss' as *;
+
+.main {
+  display: flex;
+  flex-direction: row;
+
+  @include bem-element('content') {
+    @include std-shadow(2);
+    @include std-hoverable-shadow(3);
+    margin-top: 15px;
+
+    padding: 15px;
+  }
+  @include bem-element('table-of-contents') {
+  }
+  @include bem-element('header') {
+    width: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(blue, red);
+    -webkit-text-fill-color: transparent;
+  }
+
+  @include bem-element('subheader') {
+    color: blue;
+
+    @include bem-modifier('lvl-1') {
+      color: blue;
+    }
+    @include bem-modifier('lvl-2') {
+      color: blue;
+    }
+    @include bem-modifier('lvl-3') {
+      color: blue;
+    }
+  }
+}

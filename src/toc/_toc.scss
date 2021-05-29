@@ -1,81 +1,88 @@
 @use "../styles" as *;
 
 @mixin TOC_LINKS {
-  appearance: none;
+    appearance: none;
 
-  @include bem-state("active") {
-    color: var(--blue-2);
-  }
-  @include bem-nativeState("hover") {
-    color: var(--blue-2);
-  }
+    @include bem-state('active') {
+        color: var(--blue-2);
+    }
+    @include bem-nativeState('hover') {
+        color: var(--blue-2);
+    }
 }
 
 @mixin TOC_PADDING {
-  padding: 0 24px;
+    padding: 0 24px;
 }
 
 .toc {
-  position: sticky;
-  right: 0px;
-  @include bem-element(border) {
-    border-left: 3px solid var(--blue-5);
-    margin-left: -24px;
-    padding-left: 21px;
-  }
-  @include bem-attribute("opened") {
-    background-color: white;
-    border-bottom: 1px solid var(--gray-5);
-    border-top: 1px solid var(--gray-5);
-    display: block;
-    padding: 24px 0;
-    top: 63px;
-    z-index: 100;
-    width: 30%;
-  }
+    position: sticky;
+    top: 0px;
 
-  @include bem-element("content") {
-    height: calc(100% - 24px);
-    overflow-y: auto;
-    @include bem-element("link-icon") {
-      vertical-align: middle;
+    @include bem-element('button') {
+        @include bem-modifier('close') {
+            appearance: none;
+        }
+    }
+    @include bem-element('border') {
+        @extend .toc;
+        border-left: 3px solid var(--blue-5);
+        margin-left: -24px;
+        padding-left: 21px;
     }
 
-    @include TOC_PADDING;
-  }
-  @include bem-element("header") {
-    margin-bottom: 12px;
-    margin-top: 12px;
-    @include bem-element("link") {
-      font-family: "Arial";
-      font-size: 1.2rem;
-      font-weight: 500;
+    @include bem-element('content') {
+        height: calc(100% - 24px);
+        overflow-y: auto;
+        @include bem-element('link-icon') {
+            vertical-align: middle;
+        }
 
-      @include TOC_LINKS;
+        @include TOC_PADDING;
     }
-  }
-  @include bem-element("label") {
-    display: flex;
-    height: 40px;
-    justify-content: space-between;
-    @include TOC_PADDING;
-    * {
-      font-size: 0.9rem;
-      height: 40px;
-      line-height: 40px;
-      vertical-align: middle;
+    @include bem-element('header') {
+        margin-bottom: 12px;
+        margin-top: 12px;
+        @include bem-element('link') {
+            font-family: 'Arial';
+            font-size: 1.2rem;
+            font-weight: 500;
+
+            @include TOC_LINKS;
+        }
     }
-  }
-  @include bem-element("link") {
-    font-size: 1rem;
-  }
-  @include bem-element("item") {
-    @include bem-pseudoElement("before") {
-      content: none;
+    @include bem-element('label') {
+        display: flex;
+        height: 40px;
+        justify-content: space-between;
+        @include TOC_PADDING;
+        * {
+            font-size: 0.9rem;
+            height: 40px;
+            line-height: 40px;
+            vertical-align: middle;
+        }
     }
-  }
-  @include bem-element("list") {
+}
+
+.list {
+    --list-item-padding: 0%;
     margin: 0;
     padding: 0;
-  }
+    @include std-reset-link;
+    @include std-reset-list;
+    @include bem-element('item') {
+        list-style-type: none;
+        @include bem-element('link') {
+            font-size: 1rem;
+            margin-left: var(--list-item-padding);
+            @include std-reset-link;
+            @include bem-state('active') {
+                color: var(--blue8);
+            }
+        }
+        @include bem-state('bordered') {
+            border: 2px dotted blue;
+        }
+    }
 }
